@@ -1,0 +1,10 @@
+ORDERS:
+['salesOrder', 'salesOrderType', 'salesOrganization', 'distributionChannel', 'organizationDivision', 'salesGroup', 'salesOffice', 'soldToParty', 'creationDate', 'createdByUser', 'lastChangeDateTime', 'totalNetAmount', 'overallDeliveryStatus', 'overallOrdReltdBillgStatus', 'overallSdDocReferenceStatus', 'transactionCurrency', 'pricingDate', 'requestedDeliveryDate', 'headerBillingBlockReason', 'deliveryBlockReason', 'incotermsClassification', 'incotermsLocation1', 'customerPaymentTerms', 'totalCreditCheckStatus']
+DELIVERIES_ITEMS:
+['actualDeliveryQuantity', 'batch', 'deliveryDocument', 'deliveryDocumentItem', 'deliveryQuantityUnit', 'itemBillingBlockReason', 'lastChangeDate', 'plant', 'referenceSdDocument', 'referenceSdDocumentItem', 'storageLocation']
+INVOICES_ITEMS:
+['billingDocument', 'billingDocumentItem', 'material', 'billingQuantity', 'billingQuantityUnit', 'netAmount', 'transactionCurrency', 'referenceSdDocument', 'referenceSdDocumentItem']
+PAYMENTS:
+['companyCode', 'fiscalYear', 'accountingDocument', 'accountingDocumentItem', 'clearingDate', 'clearingAccountingDocument', 'clearingDocFiscalYear', 'amountInTransactionCurrency', 'transactionCurrency', 'amountInCompanyCodeCurrency', 'companyCodeCurrency', 'customer', 'invoiceReference', 'invoiceReferenceFiscalYear', 'salesDocument', 'salesDocumentItem', 'postingDate', 'documentDate', 'assignmentReference', 'glAccount', 'financialAccountType', 'profitCenter', 'costCenter']
+CUSTOMERS:
+['businessPartner', 'customer', 'businessPartnerCategory', 'businessPartnerFullName', 'businessPartnerGrouping', 'businessPartnerName', 'correspondenceLanguage', 'createdByUser', 'creationDate', 'creationTime', 'firstName', 'formOfAddress', 'industry', 'lastChangeDate', 'lastName', 'organizationBpName1', 'organizationBpName2', 'businessPartnerIsBlocked', 'isMarkedForArchiving']

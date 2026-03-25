@@ -1,0 +1,35 @@
+TESTING REQUIRED QUERIES AGAINST LOCAL BACKEND...
+
+==================================================
+QUESTION: Which products are associated with the highest number of billing documents?
+==================================================
+[SQL GENERATED]
+SELECT ii.material, COUNT(DISTINCT ii.billingdocument) as billing_count FROM invoice_items ii WHERE ii.material != '' GROUP BY ii.material ORDER BY billing_count DESC LIMIT 10
+
+[FINAL ANSWER]
+The products associated with the highest number of billing documents are S8907367039280 and S8907367008620, both with 22 billing documents.
+
+[DATA EXTRACTED]: 10 records returned.
+
+==================================================
+QUESTION: Trace the full flow of billing document 91150187
+==================================================
+[SQL GENERATED]
+SELECT o.salesorder, o.totalnetamount, di.deliverydocument, ii.billingdocument, je.accountingdocument, p.amountintransactioncurrency FROM invoices i LEFT JOIN invoice_items ii ON i.billingdocument = ii.billingdocument LEFT JOIN delivery_items di ON ii.referencesddocument = di.deliverydocument LEFT JOIN orders o ON di.referencesddocument = o.salesorder LEFT JOIN journal_entries je ON je.referencedocument = i.billingdocument LEFT JOIN payments p ON p.invoicereference = i.billingdocument WHERE i.billingdocument = '91150187' LIMIT 5
+
+[FINAL ANSWER]
+The billing document 91150187 is linked to sales order 740550, delivery document 80738070, and has been accounted for in accounting document 9400635958 with a total net amount of 329.66.
+
+[DATA EXTRACTED]: 1 records returned.
+
+==================================================
+QUESTION: Show sales orders that were delivered but not billed
+==================================================
+[SQL GENERATED]
+SELECT DISTINCT o.salesorder, o.totalnetamount, o.overalldeliverystatus FROM orders o WHERE o.salesorder IN (SELECT DISTINCT referencesddocument FROM delivery_items WHERE referencesddocument != '') AND o.salesorder NOT IN (SELECT DISTINCT di.referencesddocument FROM delivery_items di JOIN invoice_items ii ON di.deliverydocument = ii.referencesddocument WHERE di.referencesddocument != '') LIMIT 20
+
+[FINAL ANSWER]
+The sales orders that were delivered but not billed are 740506, 740507, and 740508, with total net amounts of 17108.25, 19021.27, and 883.88 respectively.
+
+[DATA EXTRACTED]: 3 records returned.
+
