@@ -4,7 +4,7 @@ import SpriteText from "three-spritetext"
 import * as THREE from "three"
 import axios from "axios"
 
-const API = "http://127.0.0.1:8000"
+const API = "https://ordertocash-backend.onrender.com"
 
 export default function App() {
   const [graph, setGraph] = useState({ nodes: [], links: [] })
